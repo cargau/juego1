@@ -10,10 +10,17 @@ function actionMechant () {
     basic.pause(4)
     led.plot(mechantX, mechantY)
 }
+function actionTout () {
+    acitonBala()
+    chec_aouch()
+    actionMechant()
+}
 input.onButtonPressed(Button.A, function () {
-    led.unplot(jugadorX, JUGADORY)
-    jugadorX = jugadorX - 1
-    led.plot(jugadorX, JUGADORY)
+    if (jugadorX > 0) {
+        led.unplot(jugadorX, JUGADORY)
+        jugadorX = jugadorX - 1
+        led.plot(jugadorX, JUGADORY)
+    }
 })
 input.onButtonPressed(Button.AB, function () {
     balaX = jugadorX
@@ -29,21 +36,23 @@ input.onButtonPressed(Button.AB, function () {
     led.plot(balaX, balaY)
     basic.pause(1)
 })
+function chec_aouch () {
+    if (jugadorX == mechantX && JUGADORY == mechantY) {
+        music.playMelody("C - - - - - - - ", 500)
+    }
+}
 function acitonBala () {
     led.unplot(balaX, balaY)
     balaY = balaY - 1
     led.plot(balaX, balaY)
 }
 input.onButtonPressed(Button.B, function () {
-    led.unplot(jugadorX, JUGADORY)
-    jugadorX = jugadorX + 1
-    led.plot(jugadorX, JUGADORY)
-})
-function chec_aouch () {
-    if (jugadorX == mechantX && JUGADORY == mechantY) {
-        music.playMelody("C - - - - - - - ", 500)
+    if (jugadorX < 4) {
+        led.unplot(jugadorX, JUGADORY)
+        jugadorX = jugadorX + 1
+        led.plot(jugadorX, JUGADORY)
     }
-}
+})
 let mechantY = 0
 let mechantX = 0
 let balaY = 0
@@ -61,7 +70,5 @@ mechantX = 2
 mechantY = 0
 led.plot(mechantX, 0)
 basic.forever(function () {
-    actionMechant()
-    acitonBala()
-    chec_aouch()
+    actionTout()
 })
