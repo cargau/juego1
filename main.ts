@@ -41,7 +41,7 @@ input.onButtonPressed(Button.B, function () {
 })
 function chec_aouch () {
     if (jugadorX == mechantX && JUGADORY == mechantY) {
-        music.ringTone(262)
+        music.playMelody("C - - - - - - - ", 500)
     }
 }
 let mechantY = 0
@@ -63,4 +63,5 @@ led.plot(mechantX, 0)
 basic.forever(function () {
     actionMechant()
     acitonBala()
+    chec_aouch()
 })
