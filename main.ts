@@ -1,13 +1,7 @@
-function actionTout2 () {
-	
-}
-function chec_aouch2 () {
-	
-}
 function actionMechant () {
+    vieMechant()
     if (mechantY == 5) {
-        mechantY = 0
-        mechantX = randint(0, 4)
+        spawnMechant()
     }
     basic.pause(4)
     led.unplot(mechantX, mechantY)
@@ -16,31 +10,20 @@ function actionMechant () {
     basic.pause(100)
     led.plot(mechantX, mechantY)
 }
-function chec_aouch4 () {
-	
-}
 function actionTout () {
-    acitonBala()
     actionMechant()
     chec_aouch()
+    acitonBala5()
 }
-function vieMechant5 () {
-	
-}
-function actionTout3 () {
-	
-}
-function acitonBala4 () {
-	
-}
-function acitonBala3 () {
-	
-}
-function actionMechant5 () {
-	
+function spawnMechant () {
+    mechantY = 0
+    mechantX = randint(2, 2)
 }
 function acitonBala5 () {
-	
+    led.unplot(balaX, balaY)
+    balaY = balaY - 1
+    basic.pause(1)
+    led.plot(balaX, balaY)
 }
 input.onButtonPressed(Button.A, function () {
     if (jugadorX > 0) {
@@ -49,18 +32,6 @@ input.onButtonPressed(Button.A, function () {
         led.plot(jugadorX, JUGADORY)
     }
 })
-function vieMechant4 () {
-	
-}
-function actionMechant2 () {
-	
-}
-function actionMechant4 () {
-	
-}
-function actionMechant3 () {
-	
-}
 input.onButtonPressed(Button.AB, function () {
     balaX = jugadorX
     balaY = JUGADORY - 1
@@ -78,25 +49,14 @@ input.onButtonPressed(Button.AB, function () {
 function vieMechant () {
     if (mechantX == balaX && mechantY == balaY) {
         led.unplot(mechantX, mechantY)
-        music.playMelody("- - C5 C5 C5 C5 C5 C5 ", 598)
+        music.playMelody("C - - - - - - - ", 106)
+        spawnMechant()
     }
 }
 function chec_aouch () {
     if (jugadorX == mechantX && JUGADORY == mechantY) {
         music.playMelody("C - - - - - - - ", 598)
     }
-}
-function chec_aouch5 () {
-	
-}
-function vieMechant2 () {
-	
-}
-function acitonBala () {
-    led.unplot(balaX, balaY)
-    balaY = balaY - 1
-    basic.pause(1)
-    led.plot(balaX, balaY)
 }
 input.onButtonPressed(Button.B, function () {
     if (jugadorX < 4) {
@@ -105,21 +65,6 @@ input.onButtonPressed(Button.B, function () {
         led.plot(jugadorX, JUGADORY)
     }
 })
-function vieMechant3 () {
-	
-}
-function actionTout5 () {
-	
-}
-function chec_aouch3 () {
-	
-}
-function acitonBala2 () {
-	
-}
-function actionTout4 () {
-	
-}
 let mechantY = 0
 let mechantX = 0
 let balaY = 0
