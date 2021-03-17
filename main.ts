@@ -37,9 +37,7 @@ input.onButtonPressed(Button.AB, function () {
     basic.pause(1)
 })
 function chec_aouch () {
-    if (jugadorX == mechantX && JUGADORY == mechantY) {
-        music.playMelody("C - - - - - - - ", 500)
-    }
+	
 }
 function acitonBala () {
     led.unplot(balaX, balaY)
