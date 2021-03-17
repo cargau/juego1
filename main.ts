@@ -1,11 +1,12 @@
 function actionMechant () {
     if (mechantY == 5) {
-        mechantX = randint(0, 4)
-        mechantY = -1
+        let myImage = 0
+        mechantX = myImage
+        mechantY = randint(0, 4)
     }
     basic.pause(100)
     led.unplot(mechantX, mechantY)
-    basic.pause(100)
+    basic.pause(4)
     mechantY = mechantY + 1
     basic.pause(4)
     led.plot(mechantX, mechantY)
@@ -37,7 +38,9 @@ input.onButtonPressed(Button.AB, function () {
     basic.pause(1)
 })
 function chec_aouch () {
-	
+    if (jugadorX == mechantX && JUGADORY == mechantY) {
+        music.playMelody("C - - - - - - - ", 500)
+    }
 }
 function acitonBala () {
     led.unplot(balaX, balaY)
